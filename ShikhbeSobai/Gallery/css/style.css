@@ -1,0 +1,106 @@
+h1{
+  color: red;
+}
+.title{
+  color: blue;
+}
+#title{
+  color: grey;
+}
+/*  width: 25%;
+  min-height: 148px;
+  border: 1px solid red;
+
+}*/
+.wrapper img{
+  border: 1px solid red;
+  width: 25% ;
+  height: 252px;
+}
+
+.header{
+  border: 3px solid rgb(108, 19, 19);
+  height: 250px;
+}
+.banner{
+  border: 3px solid rgb(108, 19, 19);
+  height: 650px;
+}
+.body{
+  border: 3px solid  rgb(108, 19, 19);
+
+  /*height: 600px;*/
+  overflow: hidden;
+}
+.blog{
+  border: 5px solid  rgb(108, 19, 19);
+  height: 500px;
+  width: 30.1% auto;
+  float: left;
+}
+.form{
+  border: 5px solid rgb(108, 19, 19);
+  height: 500px;
+  width: 68% ;
+  float: right;
+}
+/*layout2*/
+.layout2 .header{
+  border: 3px solid rgba(214, 231, 75, 0.84);
+  height: 50px;
+}
+.layout2 .banner{
+  border: 3px solid rgb(108, 19, 19);
+  height: 350px;
+}
+.layout2 .section{
+  border: 3px solid rgb(212, 43, 38);
+  height: 400px;
+  overflow: hidden;
+  padding: 40px
+}
+.layout2 .section .subsection1{
+  border: 3px solid grey;
+
+  width: 25%;
+  height: 400px;
+  float: left;
+}
+.layout2 .section .subsection2{
+  border: 3px solid grey;
+  width: 35%;
+  height: 400px;
+  float:left;
+  margin-left: 45px;
+
+}
+.layout2 .section .subsection3{
+  border: 3px solid grey;
+  width: 30% ;
+  height: 400px;
+  float: right;
+}
+.layout2 .body{
+  border: 3px solid  rgb(108, 19, 19);
+
+  /*height: 600px;*/
+  overflow: hidden;
+}
+.layout2 .blog{
+  border: 5px solid  rgb(28, 173, 21);
+  height: 500px;
+  width: 29% ;
+  float: left;
+}
+.layout2 .form{
+  border: 5px solid rgb(108, 19, 19);
+  height: 500px;
+  width: 68% ;
+  float: left;
+
+}
+.footer{
+  border: 3px solid rgb(108, 19, 19);
+  height: 50px;
+  /*clear: both;*/
+}

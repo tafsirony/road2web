@@ -1,0 +1,171 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*Header start*/
+
+header{
+ background-image: url(banner.jpg);
+ padding-top: 10px;
+
+}
+
+.wrapper {
+	
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: white;
+	border: 1px solid black;
+} 
+
+.logo {
+	padding: 10px 0px;
+	width: 25%;
+	float: left;
+}
+.logo img{
+	width: 100%;
+	height: 70px;
+}
+
+.menu {
+	margin-top: 20px;	
+	width: 70%;
+	float: right;
+	padding: 15px;
+
+}
+.menu ul{
+	float: right;
+}
+.menu ul li{
+	list-style: none;
+	float: left;
+}
+.menu ul li a{
+	text-decoration: none;
+	padding: 5px 15px;
+	display: block;
+	color: #77828A;
+}
+.menu ul li:last-child a{
+	padding-right: 0;
+}
+.menu ul li a:hover{
+	color: #1F5C7D;
+	transition: .5s;
+}
+/*header end*/
+
+/*Banner start*/
+.banner {
+	background-image: url(banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	
+	
+}
+.banner .wrapper{
+	background-image: url(banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	padding: 100px 0px;
+
+}
+.banner-content {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	width: 35%;
+	background-color: #5788C3;
+	opacity: 0.6;
+	padding: 30px;
+
+
+}
+.banner-content p:first-child{
+	color: white;
+	font-size: 28px;
+	font-family: sans-serif;
+}
+.banner-content h1{
+	color: #007BBC;
+	font-size: 35px;
+	font-family: sans-serif;
+	text-transform: capitalize;
+}
+.banner-content p:nth-last-child(2){
+	color: white;
+	font-size: 15px;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+.banner-content button{
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+	font-size: 18px;
+	color: #686868;
+	text-transform: uppercase;
+	transition: .5s;
+}
+
+/*Banner end*/
+
+/*service start*/
+
+.service {
+	background-color: white;
+	padding-bottom: 20px;
+}
+.single{
+	margin-top: 50px;
+	width: 31%;
+	color: #C9C5C4;
+	float: left;
+	padding: 11px;
+}
+.single h2{
+	text-align: center;
+}
+.single img{
+	width: 90%;
+	height: 150px;
+	
+	padding: 20px;
+}
+.single .img-content{
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 40px;
+	color: black;
+}
+.single button{
+	
+	margin: 0 auto;
+	display: block;
+	padding: 5px 20px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	background-color: #415E7C;
+	transition: 0.5s;
+	margin-bottom: 50px;
+}
+
+/*service end*/
+/*footer starts*/
+footer p{
+	
+	text-align: center;
+	padding: 10px;
+}
+footer img{
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 40px;
+}
+/**footers ends/
