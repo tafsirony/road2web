@@ -13,33 +13,38 @@ function RenderDish({ dish }) {
   );
 }
 
-function RenderComments({ cmnts }) {
-  // if (cmnts != null) {
-    const dishComments = cmnts.map((comment) => {
+function RenderComments({ comments }) {
+  //Get the comments array using props keyword
+  if (comments != null) {
+    const dishComments = comments.map((cmnts) => {
+      //format the date as "Sep 06, 2014"
+      let date = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      }).format(new Date(Date.parse(cmnts.date)));
+
       return (
-        <ul key={comment.id} className="list-unstyled">
-          <li>{comment.comment}</li>
-          <li>
-            {/* --{comment.author},{new Date(comment.date).toDateString()} */}
-            --{comment.author},
-            {new Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-            }).format(new Date(Date.parse(comment.date)))}
+        <ul key={cmnts.id} className="list-unstyled">
+          <li className="comment">{cmnts.comment}</li>
+          <li className="author">
+            -- {cmnts.author}, {date}
           </li>
         </ul>
       );
     });
+
     return (
-      <div>
-        <h4>Comments</h4>
-        {dishComments}
+      <div className="container">
+        <div className="row">
+          <h4>Comments</h4>
+          <div>{dishComments}</div>
+        </div>
       </div>
     );
-  // } else {
-  //   return <div></div>;
-  // }
+  } else {
+    return <div></div>;
+  }
 }
 
 const DishDetail = (props) => {
@@ -51,7 +56,8 @@ const DishDetail = (props) => {
             <RenderDish dish={props.dish} />
           </div>
           <div className="col-12 col-md-5 m-1">
-            <RenderComments cmnts={props.cmnts} />
+            {/* <RenderComments cmnts={props.cmnts} /> */}
+            <RenderComments comments={props.dish.comments} />
           </div>
         </div>
       </div>
