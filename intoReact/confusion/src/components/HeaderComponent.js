@@ -7,6 +7,14 @@ import {
   Collapse,
   NavItem,
   Jumbotron,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  Input,
+  Label,
+  FormGroup,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
@@ -15,14 +23,35 @@ class Header extends Component {
     super(props);
     this.state = {
       isNavOpen: false,
+      isModalOpen: false,
     };
     this.toogleNav = this.toogleNav.bind(this);
+    this.toogleModal = this.toogleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
   toogleNav() {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
     });
   }
+  toogleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
+    });
+  }
+  handleLogin(event) {
+    this.toogleModal();
+    alert(
+      "Username: " +
+        this.username.value +
+        "Password: " +
+        this.password.value +
+        " Remember: " +
+        this.remember.checked
+    );
+    event.preventDefault();
+  }
+
   render() {
     return (
       <>
@@ -41,23 +70,33 @@ class Header extends Component {
               <Nav navbar>
                 <NavItem>
                   <NavLink className="nav-link" to="/home">
-                    <spa className="fa fa-home fa-lg"> Home</spa>
+                    <span className="fa fa-home fa-lg"> Home</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/aboutus">
-                    <spa className="fa fa-info fa-lg"> About Us</spa>
+                    <span className="fa fa-info fa-lg"> About Us</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/menu">
-                    <spa className="fa fa-list fa-lg"> Menu</spa>
+                    <span className="fa fa-list fa-lg"> Menu</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/contactus">
-                    <spa className="fa fa-address-card fa-lg"> Contact Us</spa>
+                    <span className="fa fa-address-card fa-lg">
+                      {" "}
+                      Contact Us
+                    </span>
                   </NavLink>
+                </NavItem>
+              </Nav>
+              <Nav className="ml-auto">
+                <NavItem>
+                  <Button outline onClick={this.toogleModal}>
+                    <span className="fa fa-sign-in fa-lg"> Login</span>
+                  </Button>
                 </NavItem>
               </Nav>
             </Collapse>
@@ -77,6 +116,49 @@ class Header extends Component {
             </div>
           </div>
         </Jumbotron>
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toogleModal}>
+          <ModalHeader
+            isOpen={this.state.isModalOpen}
+            toggle={this.toogleModal}
+          >
+            Login
+          </ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.handleLogin}>
+              <FormGroup>
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  type="text"
+                  id="username"
+                  name="username"
+                  innerRef={(input) => (this.username = input)}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  innerRef={(input) => (this.password = input)}
+                />
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    name="remember"
+                    innerRef={(input) => (this.remember = input)}
+                  />
+                  Remember me
+                </Label>
+              </FormGroup>
+              <Button type="submit" value="submit" color="primary">
+                Login
+              </Button>
+            </Form>
+          </ModalBody>
+        </Modal>
       </>
     );
   }
