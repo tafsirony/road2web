@@ -10,6 +10,13 @@ import {
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
 
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) =>
+  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -164,6 +171,11 @@ class Contact extends Component {
                       model=".firstname"
                       id="firstname"
                       className="form-control"
+                      validators={{
+                        required,
+                        minLength: minLength(3),
+                        maxLength: maxLength(10),
+                      }}
                       name="firstname"
                       placeholder="First Name"
                       // value={this.state.firstname}
@@ -171,6 +183,16 @@ class Contact extends Component {
                       // invalid={errors.firstname !== ""}
                       // onChange={this.handleInputChange}
                       // onBlur={this.handleBlur("firstname")}
+                    />
+                    <Errors
+                      className="text-danger"
+                      model=".firstname"
+                      show="touched"
+                      messages={{
+                        required,
+                        minLength: "Must be Greater than 3 Character",
+                        maxLength: "Must be less than 10 Character",
+                      }}
                     />
                   </Col>
                 </Row>
@@ -183,6 +205,11 @@ class Contact extends Component {
                       model=".lastname"
                       id="lastname"
                       className="form-control"
+                      validators={{
+                        required,
+                        minLength: minLength(3),
+                        maxLength: maxLength(10),
+                      }}
                       name="lastname"
                       placeholder="Last Name"
                       // value={this.state.lastname}
@@ -190,6 +217,16 @@ class Contact extends Component {
                       // invalid={errors.lastname !== ""}
                       // onChange={this.handleInputChange}
                       // onBlur={this.handleBlur("lastname")}
+                    />
+                    <Errors
+                      className="text-danger"
+                      model=".lastname"
+                      show="touched"
+                      messages={{
+                        required,
+                        minLength: "Must be Greater than 3 Character",
+                        maxLength: "Must be less than 10 Character",
+                      }}
                     />
                   </Col>
                 </Row>
@@ -202,6 +239,12 @@ class Contact extends Component {
                       model=".telnum"
                       id="telnum"
                       className="form-control"
+                      validators={{
+                        required,
+                        minLength: minLength(7),
+                        maxLength: maxLength(11),
+                        isNumber,
+                      }}
                       name="telnum"
                       // placeholder="Tel. Number"
                       // value={this.state.telnum}
@@ -209,6 +252,17 @@ class Contact extends Component {
                       // invalid={errors.telnum !== ""}
                       // onChange={this.handleInputChange}
                       // onBlur={this.handleBlur("telnum")}
+                    />
+                    <Errors
+                      className="text-danger"
+                      model=".telnum"
+                      show="touched"
+                      messages={{
+                        required,
+                        minLength: "Must be Greater than 7 Numbers",
+                        maxLength: "Must be less than 12 Number",
+                        isNumber: "Must be a phone number",
+                      }}
                     />
                   </Col>
                 </Row>
@@ -221,6 +275,10 @@ class Contact extends Component {
                       model=".email"
                       id="email"
                       className="form-control"
+                      validators={{
+                        required,
+                        validEmail,
+                      }}
                       name="email"
                       placeholder="Email"
                       // value={this.state.email}
@@ -228,6 +286,15 @@ class Contact extends Component {
                       // invalid={errors.email !== ""}
                       // onChange={this.handleInputChange}
                       // onBlur={this.handleBlur("email")}
+                    />
+                    <Errors
+                      className="text-danger"
+                      model=".email"
+                      show="touched"
+                      messages={{
+                        required,
+                        validEmail: "Invalid email address",
+                      }}
                     />
                   </Col>
                 </Row>
