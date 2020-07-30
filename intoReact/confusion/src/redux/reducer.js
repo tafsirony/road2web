@@ -1,15 +1,17 @@
-import { DISHES } from "../shared/dishes";
-import { COMMENTS } from "../shared/comments";
-import { PROMOTIONS } from "../shared/promotions";
-import { LEADERS } from "../shared/leaders";
+// this was the combined reducer flie , we split this to 4 different files
 
-export const initialState = {
-  dishes: DISHES,
-  comments: COMMENTS,
-  promotions: PROMOTIONS,
-  leaders: LEADERS,
-};
+// import { DISHES } from "../shared/dishes";
+// import { COMMENTS } from "../shared/comments";
+// import { PROMOTIONS } from "../shared/promotions";
+// import { LEADERS } from "../shared/leaders";
 
-export const Reducer = (state = initialState, action) => {
-  return state;
-};
+// export const initialState = {
+//   dishes: DISHES,
+//   comments: COMMENTS,
+//   promotions: PROMOTIONS,
+//   leaders: LEADERS,
+// };
+
+// export const Reducer = (state = initialState, action) => {
+//   return state;
+// };
