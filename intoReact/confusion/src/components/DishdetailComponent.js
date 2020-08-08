@@ -36,7 +36,7 @@ function RenderDish({ dish }) {
   );
 }
 
-function RenderComments({ comments, addComment, dishId }) {
+function RenderComments({ comments, postComment, dishId }) {
   //Get the comments array using props keyword
   if (comments != null) {
     const dishComments = comments.map((cmnts) => {
@@ -63,7 +63,7 @@ function RenderComments({ comments, addComment, dishId }) {
           <h4>Comments</h4>
           <div>{dishComments}</div>
         </div>
-        <CommentForm dishId={dishId} addComment={addComment} />
+        <CommentForm dishId={dishId} postComment={postComment} />
       </div>
     );
   } else {
@@ -88,7 +88,7 @@ class CommentForm extends Component {
   handleSubmit(values) {
     // console.log("Current State is " + JSON.stringify(values));
     // alert("Current State is " + JSON.stringify(values));
-    this.props.addComment(
+    this.props.postComment(
       this.props.dishId,
       values.rating,
       values.author,
@@ -232,7 +232,7 @@ const DishDetail = (props) => {
           <div className="col-12 col-md-5 m-1">
             <RenderComments
               comments={props.comments}
-              addComment={props.addComment}
+              postComment={props.postComment}
               dishId={props.dish.id}
             />
             {/* <Button outline><span className="fa fa-pen"></span> Submit Comment</Button> */}
